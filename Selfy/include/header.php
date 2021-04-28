@@ -1,19 +1,16 @@
 <?php 
-    $navlinks=['home', 'about','resume'];  // array navlink chứa các title của cái nav
+    $navlinks=['home', 'about','resume'];  
     $current_page=basename($_SERVER['SCRIPT_NAME'],".php"); 
-    //biến current_page dùng để xác định xem m đang mở tab nào
-    // vd: m đang mở tab home có đuôi file là "index.php" => $current_page="index"
-
+    
     function outputNavLinks($navlinks,$current_page){
-      $output=""; // biến in ra kết quả 
-    // dòng foreach loop này dùng để chạy qua các phần tử của mảng $navlinks khá giống js hồi trc
+      $output=""; 
      foreach ($navlinks as $item) {
        $href=$item;
        if($item == "home") {
           $href = 'index';
       }
       $class="";
-      if ($href==$current_page) { // dòng này xác định xem nếu tab m đang mở trùng cái biến $href thì sẽ gán $class="active"
+      if ($href==$current_page) { 
         $class="active";
       }
         $output.="<li><a href='{$href}.php' class='{$class}'> ". ucfirst($item) ."</a></li>";
